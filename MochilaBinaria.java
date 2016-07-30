@@ -13,6 +13,10 @@ public class MochilaBinaria {
     private int[][] matriz;
     private int a,b;
 
+    /**
+     * O Peso maximo que a mochila pode suportar
+     * @param pesoMax max do peso da mochila
+     */
     MochilaBinaria(int pesoMax){
         this.pesoMax = pesoMax;
         valores = new ArrayList<Integer>();
@@ -20,12 +24,21 @@ public class MochilaBinaria {
         quantItem = 0;
     }
 
+    /**
+     * O valor do ""Livro"" e o ""peso"" do livro
+     * @param valor
+     * @param peso
+     */
     public void setElemento(int valor,int peso){
         valores.add(valor);
         pesos.add(peso);
         quantItem = valores.size();
     }
 
+    /**
+     *
+     * @return a maior valor de combinação da mochila
+     */
     public int getMaiorCombinacao(){
         matriz = new int[quantItem+1][pesoMax+1];
         for(int i = 1 ; i < quantItem+1;i++) {
@@ -45,6 +58,11 @@ public class MochilaBinaria {
         }
         return matriz[quantItem][pesoMax];
     }
+
+    /**
+     *
+     * @return toda a matriz
+     */
     public int[][] getMatriz(){
         matriz = new int[quantItem+1][pesoMax+1];
         for(int i = 1 ; i < quantItem+1;i++) {
